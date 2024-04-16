@@ -1,8 +1,9 @@
-FROM kong:2.8.1-alpine
+FROM kong:3.0.2-alpine
 
 USER root
 
-RUN luarocks install kong-oidc && \
+RUN apk add git && \
+    luarocks install kong-oidc && \
     luarocks install kong-jwt2header && \
     luarocks install kong-upstream-jwt
 
